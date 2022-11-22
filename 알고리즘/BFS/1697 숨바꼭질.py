@@ -15,6 +15,5 @@ def bfs():
                 dist[nx] = dist[x] +1
                 q.append(nx)
 
-MAX = 500
-dist = [0] * 500
+dist = [0] * 10 ** 5
 bfs()
