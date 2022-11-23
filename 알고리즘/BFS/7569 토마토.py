@@ -1,7 +1,7 @@
 from collections import deque
 import sys
 
-M , N, H = map(int,input().split())
+M, N, H = map(int,input().split())
 board = []
 q = deque()
 
