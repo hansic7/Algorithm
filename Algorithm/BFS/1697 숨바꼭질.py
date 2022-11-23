@@ -1,7 +1,7 @@
 from collections import deque
 
 N, K = map(int, input().split())
-d = 10
+
 def bfs():
     q = deque()
     q.append(N)
