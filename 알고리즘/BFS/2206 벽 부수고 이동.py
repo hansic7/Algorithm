@@ -12,6 +12,7 @@ for i in range(N):
         tmp.append([0]*2)
     visited.append(tmp)
 
+
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
@@ -38,6 +39,11 @@ def bfs():
                 elif board[ny][nx] == 0 and visited[ny][nx][z] == 0:
                     visited[ny][nx][z] = visited[y][x][z]+1
                     q.append([ny,nx,z])
+        print(f'this is que = {q}')
+        print(f'this is visited= {visited}')
+        print(f'this is board  = {board}')
+        print('\n')
+    
     print(-1)
 
 bfs()
