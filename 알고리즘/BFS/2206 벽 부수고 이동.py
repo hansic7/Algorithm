@@ -19,12 +19,17 @@ dy = [0, 0, -1, 1]
 def bfs():
     q = deque()
     q.append([0,0,0])
-
+    # visited[0][0][0] = 1  ##첫번째 시작점 다시 방문 어떻게 안하게 하는지 모르겠음
+    # visited[0][0][1] = 1
     while q:
         y, x, z = q.popleft()
         
         if y == (N-1) and x == (M-1):
             print(visited[y][x][z]+1)
+            print(f'this is que = {q}')
+            print(f'this is visited= {visited}')
+            print(f'this is board  = {board}')
+            print('\n')
             exit()
 
         for i in range(4):
@@ -39,12 +44,10 @@ def bfs():
                 elif board[ny][nx] == 0 and visited[ny][nx][z] == 0:
                     visited[ny][nx][z] = visited[y][x][z]+1
                     q.append([ny,nx,z])
-        print(f'this is que = {q}')
-        print(f'this is visited= {visited}')
-        print(f'this is board  = {board}')
-        print('\n')
+        
     
     print(-1)
 
 bfs()
+
             
