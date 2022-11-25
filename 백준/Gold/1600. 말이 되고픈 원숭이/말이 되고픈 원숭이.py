@@ -1,33 +1,47 @@
 from collections import deque
-import sys
-input = sys.stdin.readline
+
+K = int(input())
+W, H = map(int, input().split())
+
+
+board = [list(map(int, input().split())) for _ in range(H)]
+
+visited =[[[0]*31 for i in range(W)] for j in range(H)]
+
 dx = [1, -1, 0, 0]
 dy = [0, 0, -1, 1]
 d1 = [-2, -1, 1, 2, 2, 1, -1, -2]
 d2 = [1, 2, 2, 1, -1, -2, -2, -1]
+
 def bfs():
     q = deque()
-    q.append((0, 0, k))
-    visit = [[[0 for i in range(31)] for i in range(w)] for i in range(h)]
+    q.append([0,0,K])
     while q:
-        x, y, z = q.popleft()
-        if z > 0:
-            for i in range(8):
-                nx = x + d1[i]
-                ny = y + d2[i]
-                if 0 <= nx < h and 0 <= ny < w and s[nx][ny] != 1 and visit[nx][ny][z - 1] == 0:
-                    visit[nx][ny][z - 1] = visit[x][y][z] + 1
-                    q.append((nx, ny, z - 1))
-        if x == h - 1 and y == w - 1: return visit[x][y][z]
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if 0 <= nx < h and 0 <= ny < w and s[nx][ny] != 1 and visit[nx][ny][z] == 0:
-                visit[nx][ny][z] = visit[x][y][z] + 1
-                q.append((nx, ny, z))
+        y, x, z = q.popleft()
         
-    return -1
-k = int(input())
-w, h = map(int, input().split())
-s = [list(map(int, input().split())) for i in range(h)]
-print(bfs())
+         
+        for i in range(4):
+            ny = y + dy[i]
+            nx = x + dx[i]
+            if 0<=ny<H and 0<=nx<W:
+                if not board[ny][nx] and not visited[ny][nx][z]:
+                        visited[ny][nx][z] = visited[y][x][z]+1
+                        q.append([ny, nx, z])
+        if y == H-1 and x == W-1:
+            print(visited[y][x][z])
+            exit() 
+        if 0 < z:
+            for i in range(8):
+                ny = y + d1[i]
+                nx = x + d2[i]
+                if 0<=ny<H and 0<=nx<W:
+                    if not board[ny][nx] and not visited[ny][nx][z-1]:
+                        visited[ny][nx][z-1] = visited[y][x][z] + 1
+                        q.append([ny,nx, z-1])
+
+        
+       
+
+    print(-1)
+
+bfs()
