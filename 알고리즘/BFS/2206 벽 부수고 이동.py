@@ -1,5 +1,4 @@
 from collections import deque
-import sys
 
 board = []
 N, M = map(int, input().split())
