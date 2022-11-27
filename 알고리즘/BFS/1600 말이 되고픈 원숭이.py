@@ -32,7 +32,7 @@ def bfs():
     q.append([0,0,K]) #마지막에 0말고 K집어넣어야됨
     while q:
         y, x, z = q.popleft()
-        if y == H-1 and x == W-1:   ##종료조건의 위치가 이해안됨 코드 진행시에ㅇㅇ
+        if y == H-1 and x == W-1:  
             print(visited[y][x][z])
             exit() 
 
@@ -41,7 +41,7 @@ def bfs():
                 ny = y + d1[i]
                 nx = x + d2[i]
                 if 0<=ny<H and 0<=nx<W:
-                    if not board[ny][nx] and not visited[ny][nx][z-1]:
+                    if not board[ny][nx] and not visited[ny][nx][z-1]:  #이거 z-1 로 체크해줘야되는 이유는 총 N번의 무브중에 먼저 들어와서 돌던 말이 있을수 있음
                         visited[ny][nx][z+1] = visited[y][x][z] + 1
                         q.append([ny,nx, z+1])
 
