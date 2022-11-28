@@ -1,3 +1,6 @@
-K = 1
-K -= 1
-print(K)
+
+import sys
+
+a = sys.stdin.readline()
+
+print(a)
