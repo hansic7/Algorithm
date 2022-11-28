@@ -1,19 +1,20 @@
 from collections import deque
 
-# N = int(input())
-# board = [list(map(int, input().strip())) for i in range(N)]
+N = int(input())
+board = [list(map(int, input().strip())) for i in range(N)]
 
-N = 7
-dd = ['0110100',
-'0110101',
-'1110101',
-'0000111',
-'0100000',
-'0111110',
-'0111000']
-board = []
-for i in range(N):
-    board.append(list(map(int, dd[i].strip())))
+### 테스트 케이스용
+# N = 7
+# dd = ['0110100',
+# '0110101',
+# '1110101',
+# '0000111',
+# '0100000',
+# '0111110',
+# '0111000']
+# board = []
+# for i in range(N):
+#     board.append(list(map(int, dd[i].strip())))
 
 
 dx = [1,-1,0,0]
@@ -40,7 +41,6 @@ for i in range(N):
     for j in range(N):
         if board[i][j] == 1:
             cnt += 1
-            # a =bfs(i,j)
             danji.append(bfs(i,j))
 
 danji.sort()
