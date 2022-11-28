@@ -11,6 +11,7 @@ while True:
         for j in range(C):
             tmp.append(list(input().strip()))
         board.append(tmp)
+        input() ## 입력값에 빈줄 하나가 더 들어온다 그래서 틀렸었음 ##
 
     for i in range(L):
         for j in range(C):
@@ -29,18 +30,23 @@ while True:
         q = deque()
         q.append(start)
         while q:
+            # print(f"this is que {q}")
             z, y, x = q.popleft()
-            if z == end[0] and y == end[1] and k == end[2]:
-                print(f"Escaped in {board[z][y][x]} minute(s).")
-                return
+            
+            
             for i in range(6):
                 nz = z + dz[i]
                 nx = x + dx[i]
                 ny = y + dy[i]
-                if 0<=nz<L and 0<=ny<C and 0<=nx<R and board[nz][ny][nx] == ".":
-                    board[nz][ny][nx] = board[z][y][x] + 1
-                    q.append([nz,ny,nx])
-                    print(board)
+                if 0<=nz<L and 0<=ny<C and 0<=nx<R:
+                    if board[nz][ny][nx] == "." or board[nz][ny][nx] == "E" :
+                        board[nz][ny][nx] = board[z][y][x] + 1
+                        q.append([nz,ny,nx])
+                        # print(f"{[nz,ny,nx]} and {board}")
+                        # print()
+                        if nz == end[0] and ny == end[1] and nx == end[2]:
+                            print(f"Escaped in {board[nz][ny][nx]} minute(s).")
+                            return
         print("Trapped!")
 
     bfs()
