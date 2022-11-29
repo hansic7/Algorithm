@@ -27,6 +27,7 @@ def bfs():
                     print(board[ny][nx]+1)
                     return
     print("IMPOSSIBLE")
+    return
 
 
 
