@@ -1,10 +1,10 @@
 from collections import deque
 
-# ie = ['*****************',
-# '.............**$*',
-# '*B*A*P*C**X*Y*.X.',
-# '*y*x*a*p**$*$**$*',
-# '*****************']
+ie = ['*****************',
+'.............**$*',
+'*B*A*P*C**X*Y*.X.',
+'*y*x*a*p**$*$**$*',
+'*****************']
 
 # ie = ['*ABCDE*',
 # 'X.....F',
@@ -14,15 +14,15 @@ from collections import deque
 # 'T.....K',
 # '*SQPML*']
 
-ie =['*.*********',
-'*...*...*x*',
-'*X*.*.*.*.*',
-'*$*...*...*',
-'***********']
+# ie =['*.*********',
+# '*...*...*x*',
+# '*X*.*.*.*.*',
+# '*$*...*...*',
+# '***********']
 
 
-N = int(input())
-# N =1
+# N = int(input())
+N = 1
 
 entr = []
 
@@ -44,7 +44,7 @@ def bfs():
                             key.append(map[ny][nx])
                             map[ny][nx] = '.'
                             q.append([ny,nx])
-                            visited = [[0]*w for i in range(h)]
+                            visited = [[0]*w for _ in range(h)]
                             visited[ny][nx] = True
                         else:
                             if map[ny][nx].lower() in key:
@@ -56,12 +56,13 @@ def bfs():
     return cnt
 
 for _ in range(N):
-    h, w = map(int, input().split())
-    map = [input().strip() for i in range(h)]
-    key= list(input().strip())
-    # h , w = 5, 11  ####
-    # map = [list(ie[i].strip()) for i in range(h)] 
-    # key = ['c' , 'z' ]
+    # h, w = map(int, input().split())
+    h , w =   5,17####
+    # map = [list(input().strip() for _ in range(h))]
+    # key= list(input().strip())
+    
+    map = [list(ie[i].strip()) for i in range(h)] 
+    key = ['c' , 'z' ]
     # key = ['i','r','o','n','y']
     # key = [0]
     

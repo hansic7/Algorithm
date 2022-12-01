@@ -1,6 +1,5 @@
+key= list(input().strip())
 
-q = []
-fire =[]
-for i in fire:
-    q.append(1)
-print(q)
+print(key)
+if 'c' in key:
+    print(123)
