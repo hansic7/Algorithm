@@ -33,7 +33,7 @@ def unlock():
 def bfs():
     global key
     global cnt
-    visited = [[0]*(w+2)for i in range(h+2)]
+    visited = [[0]*(w+2) for i in range(h+2)]
     q = deque()
     q.append([0,0])
     while q:
@@ -41,7 +41,7 @@ def bfs():
         for ii in range(4):
             ny = y + d[ii][0]
             nx = x + d[ii][1]
-            if 0<=ny<(h+2) and 0<=nx<(w+2) and  not visited[ny][nx]:
+            if 0<=ny<(h+2) and 0<=nx<(w+2) and not visited[ny][nx]:
                 
                 #빈칸인 경우
                 if map[ny][nx] == '*': 
@@ -54,11 +54,11 @@ def bfs():
                     key.append(map[ny][nx]) 
 
                 #문서인 경우
-                elif map[ny][nx] == '$':
+                if map[ny][nx] == '$':
                     cnt += 1
                 map[ny][nx] = '.'  
                 q.append([ny, nx])
-                visited[ny][nx] = True
+                visited[ny][nx] = 1
 
 
 # N = 1

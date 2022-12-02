@@ -27,7 +27,7 @@ N = 1
 entr = []
 
 def bfs():
-    global visited
+    global visited,h,w
     cnt = 0
     q = deque()
     for i in entr:
