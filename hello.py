@@ -9,6 +9,10 @@ h,w  =2,5
 #         map.append(list(row.strip()))
 #         map.append(["."]*(w+1))
 #         print(row)
-#         print(map)
-a = "dfgdaff"
-print(a.isalpha())
+
+key= list(input().strip())
+print(key)
+map = [["."]*(2)]
+print(map)
+if key:
+    print("they")
