@@ -1,4 +1,5 @@
 from collections import deque
+import copy
 
 dd = ['1 1 1 0 0 0 0 1 1 1',
 '1 1 1 1 0 0 0 0 1 1',
@@ -22,7 +23,7 @@ visited = [[False]*N for _ in range(N)]
 def bfs_edge(y,x,z):
     q = deque()
     q.append([y,x])
-    edge = deque()
+    edge = []
     while q:
         y, x = q.popleft()
         for ny,nx in [(y,x+1), (y,x-1), (y+1,x), (y-1, x)]:
@@ -34,32 +35,44 @@ def bfs_edge(y,x,z):
                 elif board[ny][nx] == 0:
                     if [y,x] not in edge:
                         edge.append([y,x])
-        # print(f"{board}")
-        # print(edge)
-        # print()
     return(edge)
 
-edges = [0]
-z = 1
+edges = [0, 0]
+z = 2  ##섬에 넘버 붙여줄거임 0은바다 1은 애초섬이니 2부터 레이블링 시작
 for i in range(N):
     for j in range(N):
         if board[i][j] == 1:
-            z += 1
             edges.append(bfs_edge(i,j,z))
+            z += 1
 
-# bfs_edge(0,7,2)
+print(edges)
+for i in edges[2]:
+    cc = 0
+    print(i)
+    cc+=1
 
-print(f"{board}")
-print()
-print(f"edges = {edges}")
+# 2부터 z까지 bfs 한번씩 다돌림
+def bfs_bridge(z):
+    # q = copy.deepcopy(edges[z]) ## q 그대로 가져오는거에서 문제생길수도?
+    q = deque()  ## 대안
+    for i in edges[z]:
+        q.append(i)
+    cnt = 1
+    tmp_board = copy.deepcopy(board)
+    while q:
+        y,x = q.popleft()
+        for ny,nx in [(y,x+1), (y,x-1), (y+1,x), (y-1, x)]:
+            if 0<=ny<N and 0<=nx<N:
+                if tmp_board[ny][nx] == 0:
+                    tmp_board[ny][nx] = cnt
+                    cnt += 1                    
+                    q.append([ny,nx])
+                elif tmp_board[ny][nx] != z:
+                    return(cnt-1)
+    return(cnt)
 
-# [2, 2, 2, 0, 0, 0, 0, 3, 3, 3], 
-# [2, 2, 2, 2, 0, 0, 0, 0, 3, 3], 
-# [2, 0, 2, 2, 0, 0, 0, 0, 3, 3], 
-# [0, 0, 2, 2, 2, 0, 0, 0, 0, 3], 
-# [0, 0, 0, 2, 0, 0, 0, 0, 0, 3], 
-# [0, 0, 0, 0, 0, 0, 0, 0, 0, 3], 
-# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-# [0, 0, 0, 0, 4, 4, 0, 0, 0, 0], 
-# [0, 0, 0, 0, 4, 4, 4, 0, 0, 0], 
-# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+for i in range(2, z+1):
+    res = 0
+    res = min(res, bfs_bridge(i))
+
+print(res)
