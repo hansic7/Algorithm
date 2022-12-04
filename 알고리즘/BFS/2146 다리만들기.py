@@ -19,7 +19,7 @@ board= [list(map(int, dd[i].split())) for i in range(N)] ###
 
 
 visited = [[False]*N for _ in range(N)]
-def bfs_edge(y,x):
+def bfs_edge(y,x,z):
     q = deque()
     q.append([y,x])
     edge = deque()
@@ -30,12 +30,36 @@ def bfs_edge(y,x):
                 if board[ny][nx] == 1:
                     q.append([ny,nx])
                     visited[ny][nx] = True
-                else:
-                    if [ny,nx] not in edge:
-                        edge.append([ny,nx])
+                    board[ny][nx] = z
+                elif board[ny][nx] == 0:
+                    if [y,x] not in edge:
+                        edge.append([y,x])
+        # print(f"{board}")
+        # print(edge)
+        # print()
     return(edge)
 
+edges = [0]
+z = 1
 for i in range(N):
     for j in range(N):
         if board[i][j] == 1:
-            
+            z += 1
+            edges.append(bfs_edge(i,j,z))
+
+# bfs_edge(0,7,2)
+
+print(f"{board}")
+print()
+print(f"edges = {edges}")
+
+# [2, 2, 2, 0, 0, 0, 0, 3, 3, 3], 
+# [2, 2, 2, 2, 0, 0, 0, 0, 3, 3], 
+# [2, 0, 2, 2, 0, 0, 0, 0, 3, 3], 
+# [0, 0, 2, 2, 2, 0, 0, 0, 0, 3], 
+# [0, 0, 0, 2, 0, 0, 0, 0, 0, 3], 
+# [0, 0, 0, 0, 0, 0, 0, 0, 0, 3], 
+# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+# [0, 0, 0, 0, 4, 4, 0, 0, 0, 0], 
+# [0, 0, 0, 0, 4, 4, 4, 0, 0, 0], 
+# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
