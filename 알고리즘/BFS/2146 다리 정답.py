@@ -114,11 +114,12 @@ def bfs(n):
     check = [[-1] * num for _ in range(num)]
     q = deque()
 
+    ##섬일때
     for i in range(num):
         for j in range(num):
             if arr[i][j] == n:
                 q.append((i,j))
-                check[i][j] = 0
+                check[i][j] = 0  
     while q:
         x,y = q.popleft()
         for a,b in (0,-1),(0,1),(1,0),(-1,0):
@@ -129,6 +130,10 @@ def bfs(n):
             #다른 섬에 도착한 경우
             if arr[nx][ny] > 0 and arr[nx][ny] != n:
                 ans = min(ans,check[x][y])
+                print(f"y,x = {y},{x} and ny,nx = {ny},{nx}")
+                for i in check:
+                    print(i)
+                print()
                 return
             #바다이고, 방문한 적이 없다면
             if arr[nx][ny] == 0 and check[nx][ny] == -1:
@@ -144,7 +149,8 @@ for i in range(num):
 
 for i in arr:
     print(i)
-
+print()
+            
 for i in range(2,cnt):
     bfs(i)
 
