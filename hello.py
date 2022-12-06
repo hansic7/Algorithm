@@ -1,6 +1,6 @@
 
 a = [2,3]
 if a == False:
-#     print("fff")
+    print("fff")
 # else:
 #     print("sadfds")
