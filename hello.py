@@ -1,6 +1,5 @@
 
-a = [2,3]
-if a == False:
-    print("fff")
-# else:
-#     print("sadfds")
+def d():
+    return ([5,3] + [6,2])
+
+print(d())
