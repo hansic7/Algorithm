@@ -6,6 +6,9 @@ for i in range(N):
 
     cnt_0 = [0] * (n+1)
     cnt_1 = [0] * (n+1)
+    cnt_0[0] = 1
+    if n != 0:
+        cnt_1[1] = 1
 
     def fibo0(n):
         global cnt_0
