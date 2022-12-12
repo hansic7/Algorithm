@@ -6,16 +6,16 @@ b= [3,4,5]
 a = [0,1,4] ## a,b를 -1하여 저장
 b= [2,3,4]
 
-# N, M = map(int, input().split())
-# board = list(map(int, input().split()))
-# a = []
-# b = []
+N, M = map(int, input().split())
+board = list(map(int, input().split()))
+a = []
+b = []
 
-# for _ in range(M):
-#     c,d = map(int, input().split())
-#     dp = 0
-#     a.append(c-1)
-#     b.append(d-1)
+for _ in range(M):
+    c,d = map(int, input().split())
+    dp = 0
+    a.append(c-1)
+    b.append(d-1)
 
 dp = 0
 for i in range(a[0], b[0]+1):

@@ -10,5 +10,4 @@ for i in range(2,n+1):
     if i % 3 == 0:
         d[i] = min(d[i//3]+1, d[i])
 
-print(d)
 print(d[n])
