@@ -8,4 +8,5 @@ dp[3] = 5
 for i in range(4,n+1):
     dp[i] = dp[i-2]*2 + dp[i-1]
 
-print(dp[n])
+print(dp[n]%10007)
+
