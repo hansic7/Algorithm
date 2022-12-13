@@ -1,4 +1,4 @@
-dp = [[0,0] for i in range(10)]
+dp = [[0,0] for i in range(94)]
 dp[0][0] = 1
 
 n = int(input())
