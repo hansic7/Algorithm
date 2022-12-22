@@ -1,5 +1,3 @@
-
-
 flag = 0
 
 n = 10
@@ -7,15 +5,16 @@ board = [1, 100, 2, 50, 60, 3, 5, 6, 7, 8]
 # board = [3,9,4,9,6,8,7,2,9,8]
 
 import copy
-n = int(input())
-board = list(map(int, input().split()))
+# n = int(input())
+# board = list(map(int, input().split()))
 
 dp = board[:]
 for i in range(1,n):
     for j in range(i-1, -1, -1):
         if board[j] < board[i]:
             dp[i] = max(dp[j] + board[i], dp[i])
-print(max(dp))
+            print(dp)
+# print(max(dp))
         
             
 
