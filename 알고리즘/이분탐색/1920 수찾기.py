@@ -4,12 +4,12 @@ board = [4, 1, 5, 2, 3]
 targets =[1, 3, 7, 9, 5]
 board.sort()
 
-# N = int(input())
-# board = list(map(int, input().split()))
-# board.sort()
+N = int(input())
+board = list(map(int, input().split()))
+board.sort()
 
-# m = int(input())
-# targets = list(map(int, input().split()))
+m = int(input())
+targets = list(map(int, input().split()))
 
 def binary(target):
     left, right = 0, N-1
