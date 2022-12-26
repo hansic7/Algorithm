@@ -16,9 +16,9 @@ while start <= end:
         now_m += (i // mid)
     if now_m < m:
         end = mid -1
+        result = mid
     else:
         start = mid+1
-        result = mid
     print(f"mid = {mid} result = {result}")
 
 print(result)

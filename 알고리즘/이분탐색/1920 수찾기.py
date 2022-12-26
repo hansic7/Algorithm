@@ -18,7 +18,7 @@ def binary(target):
         if target == board[mid]: return True
 
         if target < board[mid]:
-            right = mid -1 
+            right = mid -1
         elif target > board[mid]:
             left = mid +1
 
