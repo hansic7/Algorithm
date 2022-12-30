@@ -4,12 +4,11 @@ m = 8
 s = [10, 9, -5, 2, 3, 4, 5, -10]
 
 
-# n = int(input())
-# board = list(map(int, input().split()))
-# board.sort()
-# m = int(input())
-# s = list(map(int, input().split()))
-
+n = int(input())
+board = list(map(int, input().split()))
+board.sort()
+m = int(input())
+s = list(map(int, input().split()))
 
 for i in s:
     start, end = 0, len(board)-1
