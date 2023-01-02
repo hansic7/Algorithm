@@ -10,9 +10,9 @@ board = [4, 42, 40, 26, 46]
 
 board.sort()
 
-# m,n = map(int, input().split())
-# board = list(map(int, input().split()))
-# board.sort()
+m,n = map(int, input().split())
+board = list(map(int, input().split()))
+board.sort()
 
 start = 1
 end = max(board)

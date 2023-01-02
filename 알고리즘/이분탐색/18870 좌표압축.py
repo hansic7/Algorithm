@@ -7,10 +7,8 @@ from bisect import bisect_left, bisect_right
 # n = int(input())
 # board = list(map(int, input().split()))
 
-print(board)
 array = list(set(board))
-print(array)
 array.sort()
-print(array)
+
 for i in range(n):
     print(bisect_left(array, board[i]), end = ' ')

@@ -4,9 +4,9 @@ bbb = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # print(tmp)
 
 
-# n = int(input())
-# bbb = list(map(int, input().split()))
-# bbb.sort()
+n = int(input())
+bbb = list(map(int, input().split()))
+bbb.sort()
 
 result = 0
 for i in range(n):

@@ -6,9 +6,11 @@ board = [802,743,457,539]
 # board = [int(input()) for i in range(n)]
 board.sort()
 
-start, end = 1, max(board)
+start = 1 
+end = max(board)   
 
 result = 0
+
 while start <= end:
     mid = (start + end) // 2
     now_m = 0
