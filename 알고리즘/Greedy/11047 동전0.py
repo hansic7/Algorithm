@@ -6,10 +6,10 @@ coins = [1,5,10,
 
 
 
-# n,m = map(int, input().split())
-# coins = []
-# for _ in range(n):
-#     coins.append(int(input()))
+n,m = map(int, input().split())
+coins = []
+for _ in range(n):
+    coins.append(int(input()))
 
 result = 0
 for i in range(n-1, -1, -1):
