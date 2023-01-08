@@ -1,3 +1,3 @@
 
-
-print(11//4)
+stack = []
+print(stack[-1])

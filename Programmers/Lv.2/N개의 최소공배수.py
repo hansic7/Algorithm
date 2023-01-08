@@ -4,12 +4,9 @@ def least(a, b):
     # print(f"A,B = {A}, {B}")
     print(f"a = {a}, b = {b}")
     while b > 0:
-        # a, b = b, a % b
-
         r = a%b
         a = b
         b = r
-        
         print(f"a = {a}, b = {b}")
         
     GCD = a # 최대공약수
