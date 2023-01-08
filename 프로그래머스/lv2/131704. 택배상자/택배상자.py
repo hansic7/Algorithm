@@ -1,24 +1,15 @@
-from collections import deque
 
 def solution(order):
-    answer, now = 0,0
+    N = len(order) + 1
+    answer = 0
     stack = []
+    now = 0
+    for i in range(1, N):
+        stack.append(i)
 
-    a = deque()
-    for i in range(1, len(order)+1):
-        a.append(i)
-    
-    order = deque(order)
-
-    while order and a or (stack and stack[-1] == order[0]):
-        if a and a[0] == order[0]:
-            a.popleft()
-            order.popleft()
-            answer += 1
-        if stack and stack[-1] == order[0]:
+        while stack and stack[-1] == order[now]:
             stack.pop()
-            order.popleft()
+            now += 1
             answer += 1
-        else:
-            stack.append(a.popleft())
+        
     return answer
