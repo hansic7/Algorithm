@@ -4,6 +4,7 @@ def solution(order):
     answer = 0
     stack = []
     now = 0
+    
     for i in range(1, N):
         stack.append(i)
 
