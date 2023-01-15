@@ -7,6 +7,5 @@ public Class HelloJava10 {
 
         System.out.print("점수");
 
-        
     }
 }
