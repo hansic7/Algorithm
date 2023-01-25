@@ -13,4 +13,3 @@ def solution(n,a,b):
 
 
 a = 3
-b = 5
