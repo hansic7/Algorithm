@@ -10,3 +10,5 @@ def solution(n,a,b):
         if a == b:
             break
     return answer
+
+a = 9
