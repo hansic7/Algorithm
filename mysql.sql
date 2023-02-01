@@ -56,13 +56,16 @@ min(saleprice) as '최저가', max(saleprice) as '최고가' from orders;
 select max(orderid) as '도서 판매 건수' from orders;
 
 -- 18. 고객별로 주문한 도서의 총 수량과 총 판매액을 구하시오.
-select custid , count(*) as '총 수량',  sum(saleprice) as '총 판매액' from orders 
+select custid , count(*) as '총 수량',  sum(saleprice) as '총 판매액' 
+from orders 
 	group by custid;
-    select * from orders;
+
 
 -- 19. 가격이 8,000원 이상인 도서를 구매한 고객에 대하여 고객별 주문 도서의 총 수량을 구하시오. 
 --     단, 두 권 이상 구매한 고객만 구한다.
 
-select custid , count(*) as '총 수량' from orders where saleprice >= 8000
+select custid , count(*) as '총 수량' 
+from orders 
+where saleprice >= 8000
 	group by custid
     having count(*) >= 2;
