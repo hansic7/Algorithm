@@ -7,7 +7,8 @@ public class Ex6_SingleLinkedListEx {
    
    public static void main(String args[]){
 	  ArrayList<String> list = new ArrayList<String>();
-	  
+	//   여기만 일단 바꿈
+
       Sungjuk data;
       int menu;
       
