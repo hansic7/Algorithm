@@ -18,6 +18,9 @@
       .col1 {
         width: 80px;
       }
+      .col2 {
+        background-color: yellow;
+      }
     </style>
   </head>
   <body>
@@ -58,6 +61,7 @@
         <col class="col5" />
         <col class="col6" />
       </colgroup>
+
       <thead>
         <tr>
           <th>반</th>
@@ -69,9 +73,9 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody align="center">
         <tr>
-          <td>1반</td>
+          <td rowspan="3">1반</td>
           <td>홍길동</td>
           <td>90</td>
           <td>100</td>
@@ -79,7 +83,13 @@
           <td>81</td>
         </tr>
         <tr>
-          <td>1반</td>
+          <td>짐코딩</td>
+          <td>85</td>
+          <td>81</td>
+          <td>95</td>
+          <td>100</td>
+        </tr>
+        <tr>
           <td>짐코딩</td>
           <td>85</td>
           <td>81</td>
@@ -87,15 +97,15 @@
           <td>100</td>
         </tr>
       </tbody>
-
-      <tr>
-        <td>1반</td>
-        <td>평균</td>
-        <td>87.5</td>
-        <td>90.5</td>
-        <td>92.5</td>
-        <td>90.5</td>
-      </tr>
+      <tfoot>
+        <tr align="center">
+          <td colspan="2">평균</td>
+          <td>87.5</td>
+          <td>90.5</td>
+          <td>92.5</td>
+          <td>90.5</td>
+        </tr>
+      </tfoot>
     </table>
   </body>
 </html>
