@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Input</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Input tag</legend>
+        <ul>
+          <li>
+            <label for="text">Text</label>
+            <input type="text" id="txet" required />
+          </li>
+          <li>
+            <label for="email">이메일</label>
+            <input type="email" id="email" required />
+          </li>
+          <li>
+            <label for="tel">전화번호</label>
+            <input type="tel" id="tel" />
+          </li>
+          <li>
+            <label for="url">url</label>
+            <input type="url" id="url" />
+          </li>
+          <li>
+            <label for="number">숫자</label>
+            <input type="number" id="number" min="0" max="10" />
+          </li>
+          <li>
+            <label for="range">range</label>
+            <input type="range" id="range" />
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>날짜관련</legend>
+        <ul>
+          <li>
+            <label for="date">날짜</label>
+            <input type="date" id="date" min="2021-07-10" max="2021-07-16" />
+          </li>
+          <li>
+            <label for="month">month</label>
+            <input type="month" id="date" min="2021-07" max="2021-10" />
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>시간관련</legend>
+        <li>
+          <label for="time">time</label>
+          <input type="time" id="time" />
+        </li>
+      </fieldset>
+      <fieldset>
+        <legend>그외</legend>
+        <ul>
+          <li><input type="file" multiple /></li>
+          <li><input type="hidden" name="" value="" /></li>
+        </ul>
+      </fieldset>
+      <input type="submit" value="제출하기" />
+    </form>
+  </body>
+</html>
