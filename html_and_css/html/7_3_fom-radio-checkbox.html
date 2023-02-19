@@ -47,5 +47,37 @@
         </li>
       </ul>
     </fieldset>
+    <fieldset>
+      <legend>자기소개서</legend>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>주문 상품을 선택해주세요!</legend>
+      <ul>
+        <li>
+          <select name="goods" id="goods">
+            <option value="apple_10kg">사과 10kg</option>
+            <option value="apple_20kg">사과 20kg</option>
+            <option value="apple_30kg" selected>사과 30kg</option>
+            <option value="apple_40kg">사과 40kg</option>
+            <option value="apple_50kg">사과 50kg</option>
+          </select>
+        </li>
+        <li>
+          <label for="icecream_choice">맛을 선택하세요</label>
+          <input
+            list="icecraem"
+            type="text"
+            id="icecream_choice"
+            name="icecream_choice"
+          />
+          <datalist id="icecraem">
+            <option value="Chocolate"></option>
+            <option value="banilla"></option>
+            <option value="Strawberry"></option>
+          </datalist>
+        </li>
+      </ul>
+    </fieldset>
   </body>
 </html>
