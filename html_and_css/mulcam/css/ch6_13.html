@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        margin: 2em;
+      }
+      .box1 {
+        background-color: red;
+        color: blueviolet;
+        /* font-size: 3em; */
+        left: 10px;
+        top: 10px;
+        z-index: 3;
+      }
+      .box2 {
+        background-color: green;
+        left: 50px;
+        top: 50px;
+        z-index: 2;
+      }
+      .box3 {
+        background-color: blue;
+        left: 90px;
+        top: 90px;
+        z-index: 1;
+      }
+      .box4 {
+        -webkit-box-shadow: inset 10px 10px 10px 10px rgba(255, 0, 0, 0.5);
+        box-shadow: inset 10px 10px 10px 10px rgba(255, 0, 0, 0.5);
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+    <div class="box1 box"></div>
+    <div class="box2 box"></div>
+    <div class="box3 box"></div>
+    <div class="box4">dddddd</div>
+    <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+  </body>
+</html>
