@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .back {
+        background-image: url(https://png.pngtree.com/background/20210716/original/pngtree-tranquil-universe-background-picture-image_1337175.jpg);
+      }
+      body {
+        width: 960px;
+        margin: 15px auto;
+        font-family: '맑은 고딕', '나눔고딕', Arial;
+      }
+      #page_header {
+        border: 1px solid rgba(183, 127, 59, 0.869);
+        border-radius: 20px;
+        box-shadow: 10px 5px 5px gray;
+      }
+      header h1 {
+        text-align: center;
+        color: rgba(255, 143, 31, 0.8);
+        font-size: 1;
+        height: auto;
+        font-weight: 30px;
+
+        text-shadow: 0.2px 0.2px 0.2px rgba(132, 95, 28, 0.7);
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 1.3em;
+        color: rgb(217, 147, 16);
+      }
+      li a:hover {
+        background-color: orange;
+      }
+
+      li.dropdown {
+        display: block;
+        line-height: 60px;
+        margin: 10px;
+        float: left;
+        font-size: 13px;
+      }
+      li.sign {
+        display: block;
+        line-height: 60px;
+        margin: 10px;
+        float: right;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 150px;
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 0px 8px;
+        text-decoration: none;
+        /* display: block;
+        height: 30px; */
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .sign {
+        float: right;
+        background-color: rgba(255, 166, 0, 0.599);
+        height: 60px;
+        display: block;
+        width: 75px;
+        text-align: center;
+        border-radius: 20px;
+        border: 2px solid whitesmoke;
+        color: #2a09e28c;
+        font-size: 13px;
+      }
+      .sign:hover {
+        background-color: orange;
+      }
+      #over {
+        overflow: hidden;
+      }
+      .main-article {
+        width: 800px;
+        padding: 40px;
+        line-height: 24px;
+      }
+      .main-article h1:nth-child(1) {
+        font-size: 1.6em;
+        text-align: center;
+        font-weight: 900;
+      }
+      .main-article img {
+        width: 700px;
+      }
+      .sidebar {
+        float: right;
+        width: 100px;
+        color: grey;
+        font-size: 14px;
+      }
+      .sidebar img {
+        height: 40px;
+        width: 90px;
+      }
+      .main {
+        float: left;
+        width: 800p;
+        text-align: left;
+      }
+      #page_footer {
+        clear: both;
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 40px 0 0 0;
+      }
+    </style>
+  </head>
+  <body class="back">
+    <header id="page_header">
+      <h1>MulcNews</h1>
+    </header>
+    <header id="over">
+      <ul>
+        <li class="dropdown">
+          <a href="#home">Home</a>
+          <div class="dropdown-content">
+            <a href="#">UK</a>
+            <a href="#">South Korea</a>
+            <a href="#">U.S</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#news">News</a>
+          <div class="dropdown-content">
+            <a href="#">Politics</a>
+            <a href="#">Society</a>
+            <a href="#">Technolgy</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#link" class="dropbtn">About</a>
+          <div class="dropdown-content">
+            <a href="#">Our Team</a>
+            <a href="#">Our Panel</a>
+          </div>
+        </li>
+        <li class="sign"><a href="#">sign up</a></li>
+        <li class="sign"><a href="#"> sign in</a></li>
+      </ul>
+    </header>
+    <hr />
+    <section class="main">
+      <article class="main-article">
+        <h1>
+          Half of Britons think aliens exist – and 7% claim to have seen an UFO
+        </h1>
+        <br />
+        <h3>
+          The public are more likely to say humans should try to remain
+          undiscovered rather than make contact with extra terrestrials
+        </h3>
+        <p>
+          A new US government report on sightings of unidentified flying objects
+          (UFOs) neither confirms nor denies “alien activity”. YouGov data shows
+          that half of Britons (50%) believe aliens exist, including a fifth
+          (22%) who say they’ve been to Earth. Only three in ten people (29%)
+          feel certain they’re not real.
+        </p>
+        <h4>
+          Half of Britons say aliens exist, including a fifth who think they've
+          been to Earth
+        </h4>
+        <img src="Half_of.png" />
+        <br />
+        <br />
+        <p>
+          One in fourteen Britons (7%) even believe they’ve seen an UFO
+          themselves. Men are more than twice as likely as women to believe so
+          at 10% vs 4%. Many people also have a family member (6%), friend (6%)
+          or someone else (6%) they know who says they’ve seen an UFO. Overall,
+          one in five Britons (20%) either say they’ve seen an UFO or know
+          someone who has.
+        </p>
+        <img src="One_in.png" />
+        <br /><br />
+        <h4>What to do if humans find proof that aliens exist?</h4>
+
+        <p>
+          If proof emerges that aliens are real, Britons are more likely to err
+          on the side of caution. Two in five people (39%) say we should keep a
+          low profile and hope they don’t notice us, while three in ten (31%)
+          believe it would be a good idea to attract their attention and make
+          contact.
+        </p>
+        <h4>
+          Men are much more likely than women to say humans should try to make
+          contact if proof emerges that aliens exist
+        </h4>
+        <img src="Men_are.png" />
+        <p>
+          Men and women are of different opinions. Women are much more likely to
+          prefer a cautious approach, at 40%, with only a quarter (24%) wanting
+          to make contact. Men on the other hand are tied on what the best
+          option is, with 39% wanting to reach out and 38% preferring the “move
+          along, nothing to see here” plan.
+        </p>
+      </article>
+    </section>
+    <aside class="sidebar">
+      <h4>EXPLORE MORE DATA & ARTICLES</h4>
+      <a href="#"><img src="aliens.png" /></a>
+    </aside>
+    <footer></footer>
+  </body>
+</html>
