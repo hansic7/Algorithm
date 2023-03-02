@@ -1,3 +1,5 @@
-console.log(true && false);
-// console.log(true || false);
-// console.log(!true);
+function helloAsync() {
+//   return delay(500).then(() => {
+//     return 'Hello Async';
+//   });
+// }
