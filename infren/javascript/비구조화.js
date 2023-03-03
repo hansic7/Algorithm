@@ -20,3 +20,7 @@ let object = { one: 'one', two: ' two', three: 'three', name: '조한식' };
 
 let { name, one: the_first, two, three, abc = 'four' } = object; // 키값을 기준으로 가져옴 // 변수명 abc로 "four"를 새롭게 추가 할당
 console.log(name, the_first, two, three, abc); // one:the_first로 one은 키값 the_first는 새롭게 지정할 변수명
+
+let aa = [1, 2, 3];
+let [a, b, c] = aa;
+console.log(a, b, c);
