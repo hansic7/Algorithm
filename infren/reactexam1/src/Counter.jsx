@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import OddEvenResult from './OddEvenResult';
+
 const Counter = (props) => {
   const [count, setCount] = useState(props.initialValue);
   // var count = 0; //useState 안쓰면 렌더링 한번만 하는듯?
