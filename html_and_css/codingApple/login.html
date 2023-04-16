@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function check() {
+        var id = document.querySelector('#ID');
+        if (id.value == '') {
+          alert('아이디를 입력해 주세요');
+        }
+      }
+    </script>
+    <title>로그인 폼</title>
+  </head>
+  <body>
+    <h2 style="text-align: center">로그인</h2>
+    <hr />
+    <div style="margin: 10px; width: 250px">
+      <div style="margin-bottom: 10px">
+        <label for="ID">아이디</label>
+        <input type="text" id="ID" style="margin-left: 57px" />
+      </div>
+      <div>
+        <label for="Password">비밀번호</label>
+        <input type="text" id="Password" style="float: right" />
+      </div>
+    </div>
+    <div style="margin-left: 120px; margin-top: 20px">
+      <button onclick="check()">로그인</button>
+      <button style="margin-left: 10px">취소</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  function login() {
+    // json 형식으로 데이터 set
+    var id_val = document.querySelector('#ID');
+    var pass_val = document.querySelector('#Password');
+    if (id_val.value == '') {
+      alert('아이디를 입력해 주세요');
+    }
+    var params = {
+      ID: id_val.value,
+      Password: pass_val.value,
+    };
+    console.log(params);
+    // ajax 통신
+    $.ajax({
+      type: 'POST', // HTTP method type(GET, POST) 형식이다.
+      url: '/login', // 컨트롤러에서 대기중인 URL 주소이다.
+      data: params, // Json 형식의 데이터이다.
+      success: function (res) {
+        // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+        // 응답코드 > 0000
+        alert(res.code);
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+        alert('통신 실패.');
+      },
+    });
+  }
+
+  $('#request').click(function () {
+    // json 형식으로 데이터 set
+    var id_val = document.querySelector('#ID');
+    var pass_val = document.querySelector('#Password');
+    if (id_val.value == '') {
+      alert('아이디를 입력해 주세요');
+    }
+    var params = {
+      ID: id_val.value,
+      Password: pass_val.value,
+    };
+    console.log(params);
+    // ajax 통신
+    $.ajax({
+      type: 'POST', // HTTP method type(GET, POST) 형식이다.
+      url: '/login', // 컨트롤러에서 대기중인 URL 주소이다.
+      data: params, // Json 형식의 데이터이다.
+      success: function (res) {
+        // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+        // 응답코드 > 0000
+        alert(res.code);
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+        alert('통신 실패.');
+      },
+    });
+  });
+</script>
