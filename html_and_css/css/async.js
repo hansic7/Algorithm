@@ -10,9 +10,6 @@ function work3(callback) {
 }
 // 실행결과
 // 작업 시작
-// 다음 작업
-// 작업이 끝났어요!
-// ms 걸렸다고 해요.
 
 console.log('작업 시작');
 work3((ms) => {
