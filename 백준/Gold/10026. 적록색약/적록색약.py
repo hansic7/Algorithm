@@ -1,53 +1,48 @@
 from collections import deque
-
 N = int(input())
+arr = [list(input().strip()) for _ in range(N)]
 
-graph = []
 
-for i in range(N):
-    graph.append(list(input()))
 
+dy = [0,0,-1,1]
+dx = [1,-1,0,0]
 
 def bfs(y,x):
-    que = deque()
-    que.append([y,x])
+    q = deque()
+    q.append([y,x])
+    visited[y][x] = 1
     
-    while que:
-        y, x = que.popleft()
+    while q:
+        y,x = q.popleft()
+
         for i in range(4):
-            ny = y + dy[i]
-            nx = x + dx[i]
-            if -1 < nx < N and -1 < ny < N and not visited[ny][nx]:
-                if graph[y][x] == graph [ny][nx]:
-                    que.append([ny,nx])
-                    visited[ny][nx] = True
+          ny = y + dy[i]
+          nx = x + dx[i]
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+          if 0 <= ny < N and 0 <= nx < N and arr[ny][nx] == arr[y][x] and not visited[ny][nx]:
+              visited[ny][nx] = 1
+              q.append([ny,nx])
 
-visited = []
-cnt = 0
-for _ in range(N):
-    visited.append([False] * N)
-for y in range(N):
-    for x in range(N):
-        if not visited[y][x]:
-            bfs(y,x)
-            cnt += 1
+# 적록색약 아닌 사람
+notrg = 0
+visited = [[0 for _ in range(N)] for _ in range(N)]
+for i in range(N):
+    for j in range(N):
+        if not visited[i][j]:
+            bfs(i,j)
+            notrg += 1
 
-for y in range(N):
-    for x in range(N):
-        if graph[y][x] == 'R':
-            graph[y][x] = 'G'
+# 적색으로 올 전환
+for i in range(N):
+    for j in range(N):
+        if arr[i][j] == 'G':
+            arr[i][j] = 'R'
+rg = 0
+visited = [[0 for _ in range(N)] for _ in range(N)]
+for i in range(N):
+    for j in range(N):
+        if not visited[i][j]:
+            bfs(i,j)
+            rg += 1
 
-visited = []
-cnt2 = 0
-for _ in range(N):
-    visited.append([False] * N)
-for y in range(N):
-    for x in range(N):
-        if not visited[y][x]:
-            bfs(y,x)
-            cnt2 += 1
-
-print(f"{cnt} {cnt2}")
+print(notrg,rg)
