@@ -1,41 +1,37 @@
-import sys
 from collections import deque
-input = sys.stdin.readline
+n, m = map(int, input().split())
 
-n,m = map(int,input().rstrip().split())
-do = [] # 도화지, 그래프
-cnt = 0 # 그림의 갯수 변수
-res = [0] # 그림의 넓이 담을 배열
+arr = [list(map(int, input().split())) for _ in range(n)]
 
-# 그림 그리기
-for i in range(n):
-    do.append(list(map(int,input().rstrip().split())))
-    
-def bfs(x,y):
-	# 상하좌우 4방향
-    dx = [-1,1,0,0]
-    dy = [0,0,-1,1]
-    queue = deque()
-    queue.append([x,y])
-    do[x][y] = 0 # 시작점 방문처리
-    are = 1 # 넓이는 1부터 시작
-    while queue:
-        a,b = queue.popleft()
+dy = [-1,1,0,0]
+dx = [0,0,1,-1]
+
+cnt = 0
+sizeArr = [0]
+
+def bfs(y,x):
+    q = deque()
+    q.append([y,x])
+    size = 1
+    while q:
+        y, x = q.popleft()
+
         for i in range(4):
-            nx = a + dx[i]
-            ny = b + dy[i]
-			# 도화지 안에 위치하고 아직 방문하지 않았다면 방문
-            if 0 <= nx < n and 0 <= ny < m and do[nx][ny] == 1:
-                are += 1 # 넓이 키우기
-                do[nx][ny] = 0 # 방문 처리            
-                queue.append([nx, ny]) # 큐에 삽입
-    res.append(are) # 그림의 넓이 배열에 삽입
+            ny = y + dy[i]
+            nx = x + dx[i]
+            if (0 <= ny < n and 0 <= nx < m and arr[ny][nx] == 1):
+                arr[ny][nx] = 2
+                q.append([ny,nx])
+                size += 1
+    sizeArr.append(size)
 
-for x in range(n):
-    for y in range(m):
-        if do[x][y] == 1: # 그림이 그려져있다면 BFS 탐색 시작
-            bfs(x,y)
-            cnt += 1 # 그림 갯수 +1
 
-print(cnt) # 그림갯수 출력
-print(max(res)) # 그림의 넓이 최대값 출력
+for i in range(n):
+    for j in range(m):
+        if arr[i][j] == 1:
+            arr[i][j] = 2
+            cnt += 1
+            bfs(i,j)
+            
+print(cnt)
+print(max(sizeArr))
