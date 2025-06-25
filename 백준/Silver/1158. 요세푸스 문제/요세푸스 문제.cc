@@ -1,41 +1,28 @@
-#include<iostream>
-#include<algorithm>
-#include<vector>
-#include<list>
-
+#include <iostream>
+#include <queue>
 using namespace std;
 
-int main() {
-    list<int>::iterator it;
-    list<int> list;
+int main(){
+    int n, k;
+    cin >> n >> k;
 
-    int n,k;
+    queue<int> q;
 
-    cin >> n;
-    cin >> k;
+    cout << '<';
 
-    it = list.begin();
+    for (int i = 1; i <= n; i++)
+        q.push(i);
 
-    for (int i = 1; i <= n; i++) {
-        list.insert(it, i);
-    }
-
-    it = list.begin();
-    
-    cout << "<";
-    while (!list.empty()){
-        for (int i = 1; i < k; ++i) {
-            if (++it == list.end()){
-                it = list.begin();
-            }
+    while (!q.empty()) {
+        for (int i = 0; i < k-1; i++) {
+            q.push(q.front());
+            q.pop();
         }
+        cout << q.front();
+        q.pop();
 
-        cout << *it;
-        it = list.erase(it);
-        if (it == list.end()) it = list.begin();
-
-        if (!list.empty()) cout << ", ";
+        if (!q.empty()) cout << ", ";
     }
 
-    cout << ">";
+    cout << '>';
 }
