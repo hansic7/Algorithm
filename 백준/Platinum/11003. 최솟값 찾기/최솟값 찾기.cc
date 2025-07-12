@@ -24,7 +24,7 @@ int main() {
             dq.pop_front();
         }
 
-        while (!dq.empty() && dq.back().second > num) {
+        while (!dq.empty() && dq.back().second >= num) {
             dq.pop_back();
         }
         
