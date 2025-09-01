@@ -1,25 +1,29 @@
 #include <iostream>
 using namespace std;
-void star(int i, int j, int num)
-{
-    if((i / num)%3 == 1 && (j / num)%3 == 1) {
-        cout << ' ';
-    }
-    else
-    {
-        if(num / 3 == 0)
-            cout <<'*';
-        else
-            star(i,j,num/3);
-    }
-}
+
 int main() {
-    int num;
-    cin >> num;
-    for(int i = 0; i < num; i++)
-    {
-        for(int j = 0; j < num; j++)
-            star(i,j,num);
+    int N;
+    cin >> N;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            int x = i, y = j;
+            bool blank = false;
+
+            // 반복적으로 좌표를 3으로 나누며 중심 영역(1,1)에 있는지 검사
+            while (x > 0 || y > 0) {
+                if (x % 3 == 1 && y % 3 == 1) {
+                    blank = true;
+                    break;
+                }
+                x /= 3;
+                y /= 3;
+            }
+
+            cout << (blank ? ' ' : '*');
+        }
         cout << '\n';
     }
+
+    return 0;
 }
