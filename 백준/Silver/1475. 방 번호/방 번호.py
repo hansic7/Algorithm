@@ -1,13 +1,13 @@
-from math import ceil
-answer=[]
-for i in range(10):
-    answer.append(0)
+n = input()
 
-aa = str(input())
-N = len(aa)
-for i in range(N):
-    answer[int(aa[i])] += 1
+arr = [0] * 10
 
-answer[6] = ceil((answer[6]+answer[9])/2)
-answer[9] = 0
-print(max(answer))
+for i in n:
+    if (i == '9'):
+        arr[6] += 1
+    else:
+        arr[int(i)] += 1
+
+arr[6] = (arr[6] + 1) // 2
+
+print(max(arr))
