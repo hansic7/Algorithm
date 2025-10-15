@@ -1,15 +1,13 @@
-from collections import deque
+n, m = map(int, input().split())
+arr = [i for i in range(1, n+1)]
 
-N, k = map(int, input().split())
+result = []
+iter = 0
 
-s = deque()
-answer = []
+for _ in range(n):    
+    iter += m-1
+    if iter >= len(arr):
+        iter = iter%len(arr)
+    result.append(str(arr.pop(iter)))
 
-for i in range(1, N+1): 
-    s.appendleft(i)
-
-for i in range(N):
-    s.rotate(k-1)
-    answer.append(s.pop())
-
-print('<' + str(answer)[1:-1]  + '>')
+print("<",", ".join(result)[:],">", sep='')
