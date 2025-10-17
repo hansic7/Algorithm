@@ -1,22 +1,20 @@
-L ,C = map(int, input().split())
-board = list(input().split())
-board.sort()
+L, C = map(int, input().split())
+arr = list(map(str, input().split()))
+arr.sort()
 
+visited = [0] * C
+vowel = ['a', 'e', 'i', 'o', 'u']
 s = []
-def dfs(n):
-    if len(s) == L:
-        cnt = 0
-        for i in range(L):
-            if  s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u':
-                cnt += 1
-        if cnt < 1 or L-cnt < 2:
-            return
-        print(''.join(map(str, s)))
-        return
 
-    for i in range(n,C):
-        s.append(board[i])
-        dfs(i+1)
+
+def dfs(start):
+    if len(s) == L and len(set(vowel) & set(s)) >= 1:
+        if len(set(s) - set(vowel)) >= 2:
+            print(''.join(map(str, s)))
+    
+    for i in range(start+1, len(arr)):
+        s.append(arr[i])
+        dfs(i)
         s.pop()
 
-dfs(0)
+dfs(-1)
