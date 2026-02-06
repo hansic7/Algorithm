@@ -1,4 +1,3 @@
-
 arr = []
 cnt = [0,0,0]
 N = int(input())
@@ -6,14 +5,9 @@ N = int(input())
 for _ in range(N):
     arr.append(list(map(int, input().split())))
 
-# N = 9
-# arr = [[0, 0, 0, 1, 1, 1, -1, -1, -1], [0, 0, 0, 1, 1, 1, -1, -1, -1], [0, 0, 0, 1, 1, 1, -1, -1, -1], [1, 1, 1, 0, 0, 0, 0, 0, 0], [1, 1, 1, 0, 0, 0, 0, 0, 0], [1, 1, 1, 0, 0, 0, 0, 0, 0], [0, 1, -1, 0, 1, -1, 0, 1, -1], [0, -1, 1, 0, 1, -1, 0, 1, -1], [0, 1, -1, 1, 0, -1, 0, 1, -1]]
-
 def dfs(n, y, x):
-    
     global cnt
     standard = arr[y][x]
-    tmp_cnt = [0,0,0]
     volume = n //3
     issame = True
     for i in range(y, y+n):
