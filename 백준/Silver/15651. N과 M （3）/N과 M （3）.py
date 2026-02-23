@@ -1,14 +1,30 @@
-n,m = list(map(int,input().split()))
+
+N, M = map(int, input().split())
 s = []
+arr = []
+for i in range(N+2):
+    arr.append(i)
 
 def dfs():
-    if len(s)==m:
-        print(' '.join(map(str,s)))
+    global s
+
+    if len(s) == M:
+        for st in s:
+            print(st, end = ' ')
+        print()
         return
     
-    for i in range(1,n+1):
-        s.append(i)
+
+    for i in range(1, N+1):
+        s.append(arr[i])
         dfs()
         s.pop()
-            
-dfs()
+
+for i in range(1, N+1):
+        s.append(arr[i])
+        dfs()
+        s.pop()
+
+
+
+
