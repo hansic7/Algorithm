@@ -1,32 +1,27 @@
-def dfs(start):
-    if len(s) == 6:
-        print(' '.join(map(str, s)))
+
+
+def dfs(idx, cur_arr, arr):
+
+    if len(cur_arr) == 6:
+        for n in cur_arr:
+            print(n, end = ' ')
+        print()
         return
-    for i in range(start, N):
-        if not visited[i]:
-            s.append(board[i])
-            visited[i] = True
-            dfs(i)
-            s.pop()
-            visited[i] = False
-            
 
+    if idx > arr[0]: return
 
+    cur_arr.append(arr[idx])
+    dfs(idx + 1, cur_arr,arr)
+    cur_arr.pop()
 
+    dfs(idx + 1, cur_arr, arr)
+    
 
-
-
-
-for _ in range(100):
-    board = (list(map(int, input().split())))
-    # board = [7, 1, 2, 3, 4, 5, 6, 7]
-    if board[0] == 0:
-        quit()
-    N = board[0]
-    visited = [False] * N
-    del board[0]
-    s = []
-    dfs(0)
+while True:
+    arr = list(map(int, input().split()))
+    if arr[0] == 0 : break
+    # arr = [7, 1, 2, 3, 4, 5, 6, 7]
+    # arr = [8, 1, 2, 3, 5, 8, 13, 21, 34]
+    dfs(1, [], arr)
     print()
 
-    
