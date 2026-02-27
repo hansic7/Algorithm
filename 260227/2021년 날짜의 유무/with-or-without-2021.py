@@ -6,6 +6,8 @@ if M > 12 or D > 31:
     print("No")
 elif D == 31 and M not in a:
     print("No")
+elif M == 2 and D > 28:
+    print("No")
 else:
     print("Yes")
     
