@@ -7,7 +7,7 @@ def check(n1,n2,a,b):
         if a[i] == b[0]:
             tmp_i = i + 1
             for j in range(1, n2):
-                if a[tmp_i] != b[j]:
+                if tmp_i >= n1 or a[tmp_i] != b[j]:
                     break
                 tmp_i += 1
             if tmp_i == i + n2:
