@@ -1,6 +1,10 @@
 n = int(input())
 
 def is_magic_n(n):
+    if n % 2 != 0:
+        print('No')
+        return
+
     cnt = 0
     while n > 0:
         
