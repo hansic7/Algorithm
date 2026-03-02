@@ -13,11 +13,20 @@ def dfs(n):
 
     return dfs(n+1)
 
-print(dfs(1))
 
-    
+n = 1
+while True:
+    flag = True
+    for a in arr:
+        if n % a != 0:
+            flag = False
+            break
 
+    if flag:
+        print(n)
+        break
 
+    n += 1
 
 
 # Please write your code here.
