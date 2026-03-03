@@ -1,7 +1,7 @@
 n = int(input())
 arr =[]
 
-while n > 0:
+while n >= 0:
     if n < 2:
         arr.append(n)
         break
