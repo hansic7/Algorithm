@@ -8,6 +8,9 @@ min = 100
 for s,e in segments:
     if s < min: min = s
 
+if min < 0:
+    min = -min
+
 for s,e in segments:
     s += min
     e += min
