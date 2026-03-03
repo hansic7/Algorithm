@@ -14,7 +14,7 @@ if min < 0:
 for s,e in segments:
     s += min
     e += min
-    for i in range(s, e+1):
+    for i in range(s, e):
         arr[i] += 1
 
 print(max(arr))
