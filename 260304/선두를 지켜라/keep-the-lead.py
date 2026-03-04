@@ -26,6 +26,7 @@ first = (0 if arr1[1] > arr2[1] else 1)
 result = 0
 
 for i in range(2, len(arr1)):
+    cur_first = first
     if arr1[i] > arr2[i]:
         cur_first = 0
     elif arr1[i] < arr2[i]:
