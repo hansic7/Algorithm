@@ -21,23 +21,36 @@ for _ in range(m):
             arr2.append(arr2[-1] - 1)
 
 
+# a_last = len(arr1)
+# b_last = len(arr2)
+# diff_place = False
+# cnt = 0
+# for i in range(max(a_last, b_last)):
+#     a1 = (-1 if i >= a_last else i)
+#     b1 = (-1 if i >= b_last else i)
+#     if arr1[a1] == arr2[b1]: 
+#         if diff_place:
+#             # print("a1 = ", a1, " arr1[a1] =", arr1[a1], " b1 =", b1, " arr2[b1]=", arr2[b1])
+#             cnt += 1
+#             diff_place = False
+#     else:
+#         diff_place = True
+
+
 a_last = len(arr1)
 b_last = len(arr2)
-diff_place = False
-cnt = 0
-for i in range(max(a_last, b_last)):
-    a1 = (-1 if i >= a_last else i)
-    b1 = (-1 if i >= b_last else i)
-    if arr1[a1] == arr2[b1]: 
-        if diff_place:
-            # print("a1 = ", a1, " arr1[a1] =", arr1[a1], " b1 =", b1, " arr2[b1]=", arr2[b1])
-            cnt += 1
-            diff_place = False
-    else:
-        diff_place = True
+if a_last > b_last:
+    for _ in range(b_last, a_last):
+        arr2.append(arr2[-1])
+elif a_last < b_last:
+    for _ in range(a_last, b_last):
+        arr1.append(arr1[-1])
 
-# print(arr1)
-# print(arr2)
+cnt = 0
+for i in range(1, max(a_last, b_last)):
+    if arr1[i] == arr2[i] and arr1[i-1] != arr2[i-1]:
+        cnt += 1
+
 print(cnt) 
 
 # Please write your code here.
