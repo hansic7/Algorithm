@@ -7,11 +7,15 @@ arr[P][0] = 1
 hand.sort(key = lambda x : x[0])
 
 for t,x,y in hand:
+    if arr[x][0] == 1 and arr[y][0] == 1:
+        arr[x][1] += 1
+        arr[y][1] += 1
+        continue
+
     if arr[x][0] == 1 and arr[x][1] < K:
         arr[y][0] = 1
         arr[x][1] += 1
-    
-    if arr[y][0] == 1 and arr[y][1] < K:
+    elif arr[y][0] == 1 and arr[y][1] < K:
         arr[x][0] = 1
         arr[y][1] += 1
 
