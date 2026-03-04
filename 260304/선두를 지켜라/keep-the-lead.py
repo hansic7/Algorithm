@@ -22,17 +22,27 @@ for _ in range(m):
     for _ in range(ti):
         arr2.append(arr2[-1] + vi)
 
-first = (0 if arr1[1] > arr2[1] else 1)
+first = -1
+s = 1
+while s < len(arr1):
+    if arr1[s] > arr2[s]:
+        first = 0
+        break
+    elif arr1[s] < arr2[s]:
+        first = 1
+        break
+    s += 1
+
 result = 0
 
-for i in range(2, len(arr1)):
+for i in range(s, len(arr1)):
     cur_first = first
     if arr1[i] > arr2[i]:
         cur_first = 0
     elif arr1[i] < arr2[i]:
         cur_first = 1
     
-    if first != cur_first:
+    if first != cur_first and cur_first != -1:
         result += 1
         first = cur_first
 
