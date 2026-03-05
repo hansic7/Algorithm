@@ -66,6 +66,4 @@ while True:
     move()
     cnt += 1
 
-    
-print(y,x)
 # Please write your code here.
