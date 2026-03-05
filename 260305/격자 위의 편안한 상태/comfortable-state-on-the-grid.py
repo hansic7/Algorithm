@@ -17,8 +17,7 @@ def comfort(y,x):
     return False
 
 for y,x in points:
-    y -= 1
-    x -= 1
+    y,x = y-1,x-1
 
     arr[y][x] = 1
     if comfort(y,x):
