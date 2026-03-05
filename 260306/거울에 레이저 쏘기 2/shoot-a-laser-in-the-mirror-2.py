@@ -26,7 +26,18 @@ def start_point():
         dir_num = 3
 
     return y,x, dir_num
-
+    
+def start_point():
+    # k에 따라 시작 위치와 "격자 안으로 들어오는" 초기 방향 설정
+    if k // n == 0:     # 위 -> 아래
+        return 0, k % n, 1
+    elif k // n == 1:   # 오른쪽 -> 왼쪽
+        return k % n, n - 1, 2
+    elif k // n == 2:   # 아래 -> 위
+        return n - 1, n - 1 - (k % n), 3
+    else:               # 왼쪽 -> 오른쪽
+        return n - 1 - (k % n), 0, 0
+        
 def in_range(y,x):
     return 0 <= y < n  and 0 <= x < n
 
