@@ -2,7 +2,7 @@ n, t = map(int, input().split())
 r, c, d = input().split()
 y, x = int(r), int(c)
 
-dy, dx = [1, 0, -1, 0], [0, 1, 0, -1]
+dy, dx = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 if d == 'U':
     dir = 0
