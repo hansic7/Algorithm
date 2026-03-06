@@ -1,7 +1,9 @@
+import sys
+
 n = int(input())
 A = list(map(int, input().split()))
 
-res = 10000
+res = sys.maxsize
 for i in range(n):
     tmp = 0
     for j in range(n):
