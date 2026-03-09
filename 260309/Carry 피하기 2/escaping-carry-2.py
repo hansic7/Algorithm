@@ -18,7 +18,6 @@ for i in range(n):
         for k in range(j+1, n):
             a,b,c = arr[i], arr[j], arr[k]
             if not is_carry(a,b,c):
-                print(a,b,c)
                 result = max(result, a+b+c)
 
 print(result)
