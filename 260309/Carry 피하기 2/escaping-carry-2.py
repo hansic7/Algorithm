@@ -1,11 +1,11 @@
 n = int(input())
 arr = [int(input()) for _ in range(n)]
 
-result = 0
+result = -1
 
 def is_carry(n,m,l):
     while n > 0 or m > 0 or l > 0:
-        if n % 10 + m % 10 + l % 10 > 10:
+        if n % 10 + m % 10 + l % 10 >= 10:
             return True
         n = n // 10
         m = m // 10
