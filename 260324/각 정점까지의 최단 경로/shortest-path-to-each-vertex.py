@@ -23,8 +23,7 @@ def diijkstra(start):
                 if prev_dist + ed[1] < distance[ed[1]]:
                     distance[ed[1]] = prev_dist + ed[2]
                     heapq.heappush(q, (prev_dist + ed[2], ed[1]))
-
-                if prev_dist + ed[2] < distance[ed[0]]:
+                elif prev_dist + ed[2] < distance[ed[0]]:
                     distance[ed[0]] = prev_dist + ed[2]
                     heapq.heappush(q, (prev_dist + ed[2], ed[0]))
 
