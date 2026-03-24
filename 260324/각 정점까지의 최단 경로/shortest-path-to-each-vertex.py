@@ -13,19 +13,18 @@ def diijkstra(start):
 
     while q:
         dist_in_q, now = heapq.heappop(q)
-        prev_dist = distance[now]
         
-        if prev_dist < dist_in_q:
+        if distance[now] < dist_in_q:
             continue
 
         for ed in edges:
             if now == ed[0] or now == ed[1]:
-                if prev_dist + ed[1] < distance[ed[1]]:
-                    distance[ed[1]] = prev_dist + ed[2]
-                    heapq.heappush(q, (prev_dist + ed[2], ed[1]))
-                elif prev_dist + ed[2] < distance[ed[0]]:
-                    distance[ed[0]] = prev_dist + ed[2]
-                    heapq.heappush(q, (prev_dist + ed[2], ed[0]))
+                if distance[now] + ed[1] < distance[ed[1]]:
+                    distance[ed[1]] = distance[now] + ed[2]
+                    heapq.heappush(q, (distance[now] + ed[2], ed[1]))
+                elif distance[now] + ed[2] < distance[ed[0]]:
+                    distance[ed[0]] = distance[now] + ed[2]
+                    heapq.heappush(q, (distance[now] + ed[2], ed[0]))
 
 
 diijkstra(k)
@@ -37,3 +36,4 @@ for i in range(1, n+1):
         print(distance[i])
 
 # Please write your code here.
+
