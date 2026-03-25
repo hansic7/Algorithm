@@ -1,7 +1,7 @@
 import heapq
 
 n, m = map(int, input().split())
-dist = [10e8] * (n+1)
+dist = [int(1e9)] * (n+1)
 path = [0] * (n+1)
 
 graph = [[] for _ in range(n+1)]
