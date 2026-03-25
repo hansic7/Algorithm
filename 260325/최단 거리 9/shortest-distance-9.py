@@ -19,7 +19,7 @@ def diik(start):
     while pq:
         min_dist, min_index = heapq.heappop(pq)
 
-        if dist[min_index] < min_dist:
+        if dist[min_index] > min_dist:
             continue
         
         for target_index, target_dist in graph[min_index]:
