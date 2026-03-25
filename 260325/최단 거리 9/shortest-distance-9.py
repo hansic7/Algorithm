@@ -18,6 +18,9 @@ def diik(start):
 
     while pq:
         min_dist, min_index = heapq.heappop(pq)
+
+        if dist[min_index] < min_dist:
+            continue
         
         for target_index, target_dist in graph[min_index]:
             new_dist = dist[min_index] + target_dist
@@ -27,7 +30,6 @@ def diik(start):
                 heapq.heappush(pq, (new_dist, target_index))
             
 diik(end)
-
 
 x = start
 tmp = []
