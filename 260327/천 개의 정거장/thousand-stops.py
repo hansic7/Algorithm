@@ -23,14 +23,15 @@ if a != b:
     heapq.heappush(pq, (0, 0 ,0, a))
 
 while pq:
-    accu_fare, cur_bus_num, accu_dist, prev_index = heapq.heappop(pq)
+    accu_fare, prev_bus_num, accu_dist, prev_index = heapq.heappop(pq)
 
     if bus[prev_index][0] < accu_fare:
         continue
     
     for fare, next_index, bus_num in graph[prev_index]:
         
-        if cur_bus_num == bus_num:
+        if prev_bus_num == bus_num:
+            cur_bus_num = prev_bus_num
             next_fare = accu_fare
         else:
             next_fare = accu_fare + fare
