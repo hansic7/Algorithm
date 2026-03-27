@@ -40,9 +40,12 @@ while pq:
             bus[next_index][0] = next_fare
             bus[next_index][1] = accu_dist + 1
             heapq.heappush(pq, (next_fare, cur_bus_num, accu_dist + 1, next_index))
-        
-print(bus[b][0], end = ' ')
-print(bus[b][1])
+
+if bus[b][0] == INT_MAX:
+    print ("-1 -1")
+else:
+    print(bus[b][0], end = ' ')
+    print(bus[b][1])
 
 
 
