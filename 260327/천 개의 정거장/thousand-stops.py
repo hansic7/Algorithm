@@ -9,46 +9,50 @@ for bus_num in range(1, n+1):
     fare, m = map(int, input().split())
     tmp = tuple(map(int, input().split()))
     for j in range(m-1):
-        # fare, next_index, bus_num
-        graph[tmp[j]].append((fare, (tmp[j+1]), bus_num))
+        graph[tmp[j]].append((fare, tmp[j+1], bus_num))
 
-# fare, dist
-bus = [[INT_MAX, 10e8] for _ in range(1001)]
+# ✅ 상태: (node, bus_num) → [fare, dist]
+visited = {}
 
 pq = []
-bus[a] = [0,0]
+# fare, dist, bus_num, node
+heapq.heappush(pq, (0, 0, 0, a))
 
-if a != b:    
-    # fare, prev_bus, dist, prev_index
-    heapq.heappush(pq, (0, 0 ,0, a))
+ans_fare, ans_dist = INT_MAX, INT_MAX
 
 while pq:
-    accu_fare, prev_bus_num, accu_dist, prev_index = heapq.heappop(pq)
+    accu_fare, accu_dist, prev_bus_num, prev_index = heapq.heappop(pq)
 
-    if bus[prev_index][0] < accu_fare:
+    if prev_index == b:
+        if accu_fare < ans_fare or (accu_fare == ans_fare and accu_dist < ans_dist):
+            ans_fare, ans_dist = accu_fare, accu_dist
         continue
-    
+
+    # ✅ 상태에 bus_num 포함
+    state = (prev_index, prev_bus_num)
+    if state in visited:
+        f, d = visited[state]
+        if f < accu_fare or (f == accu_fare and d <= accu_dist):
+            continue
+    visited[state] = (accu_fare, accu_dist)
+
     for fare, next_index, bus_num in graph[prev_index]:
-        
         if prev_bus_num == bus_num:
-            cur_bus_num = prev_bus_num
             next_fare = accu_fare
         else:
             next_fare = accu_fare + fare
-            cur_bus_num = bus_num
 
-        if bus[next_index][0] > next_fare:
-            bus[next_index][0] = next_fare
-            bus[next_index][1] = accu_dist + 1
-            heapq.heappush(pq, (next_fare, cur_bus_num, accu_dist + 1, next_index))
+        next_dist = accu_dist + 1
+        next_state = (next_index, bus_num)
 
-if bus[b][0] == INT_MAX:
-    print ("-1 -1")
+        if next_state not in visited:
+            heapq.heappush(pq, (next_fare, next_dist, bus_num, next_index))
+        else:
+            f, d = visited[next_state]
+            if f > next_fare or (f == next_fare and d > next_dist):
+                heapq.heappush(pq, (next_fare, next_dist, bus_num, next_index))
+
+if ans_fare == INT_MAX:
+    print("-1 -1")
 else:
-    print(bus[b][0], end = ' ')
-    print(bus[b][1])
-
-
-
-
-# Please write your code here.
+    print(ans_fare, ans_dist)
