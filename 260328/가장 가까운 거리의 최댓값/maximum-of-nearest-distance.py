@@ -35,8 +35,8 @@ for x in a_b_c:
     for_max_dist.append(dist)
 
 
-tmp = []
-for i in range(1, n):
+tmp = [0]
+for i in range(1, n+1):
     if i in a_b_c:
         continue
     
