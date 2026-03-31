@@ -12,8 +12,6 @@ for _ in range(m):
     graph[v].append((u,l,c))
     cs.add(c)
 
-print(graph)
-
 def diikstra(min_c):
     pq = []
     dist = [10e8] * (n+1)
