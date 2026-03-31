@@ -32,16 +32,24 @@ def diikstra(start_index):
 disA = diikstra(red1)
 disB = diikstra(red2)
 
+possible = False
 result = 10**8
 for i in range(1, n+1):
     if i == red1 or i == red2:
         continue
-    result = min(result, disA[i] + disB[i] + disA[red2])
+
+    new_result = disA[i] + disB[i] + disA[red2]
+    if result > new_result:
+        result = new_result
+        possible = True
+        
 
 # print(disA)
 # print(disB)
-
-print(result)
+if possible:
+    print(result)
+else:
+    print(-1)
 
 # Please write your code here.
 
