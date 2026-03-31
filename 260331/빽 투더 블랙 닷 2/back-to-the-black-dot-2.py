@@ -34,9 +34,14 @@ disB = diikstra(red2)
 
 result = 10**8
 for i in range(1, n+1):
+    if i == red1 or i == red2:
+        continue
     result = min(result, disA[i] + disB[i] + disA[red2])
 
+# print(disA)
+# print(disB)
 
 print(result)
 
 # Please write your code here.
+
