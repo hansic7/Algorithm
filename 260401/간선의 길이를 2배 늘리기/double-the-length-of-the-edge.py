@@ -59,7 +59,7 @@ for u, v, w, u_index, v_index in meta_graph:
     or dist[v] + w + dist_reverse[u] == result_before:
         tmp_graph = copy.deepcopy(graph)
         tmp_graph[u][u_index][1] *= 2
-        tmp_graph[v][v_index][1] *= 2
+        # tmp_graph[v][v_index][1] *= 2
         tmp_dist = diikstra(tmp_graph, 1)
         result_after = max(result_after, tmp_dist[n])
 
