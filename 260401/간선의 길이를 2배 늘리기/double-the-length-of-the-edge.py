@@ -38,21 +38,16 @@ dist = diikstra(graph)
 result_before = dist[n]
 
 result_after = 0
-for u,v,u_index,v_index in meta_graph:
+
+
+for i in range(1, n):
     tmp_graph = copy.deepcopy(graph)
-    tmp_graph[u][u_index][1] *= 2
-    tmp_graph[v][v_index][1] *= 2
 
-    # for i in range(len(tmp_graph[u])):
-    #     if tmp_graph[u][i][0] == v:
-    #         tmp_graph[u][i][1] *= 2
-    #         break
-
-    # for i in range(len(tmp_graph[v])):
-    #     if tmp_graph[v][i][0] == u:
-            
-    #         break
-    
+    for j in range(len(graph[i])):
+        v, w = graph[i][j]
+        if dist[i] + w == dist[v]:
+            tmp_graph[i][j][1] *= 2
+                    
     tmp_dist = diikstra(tmp_graph)
     
     result_after = max(result_after, tmp_dist[n])
