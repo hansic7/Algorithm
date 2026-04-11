@@ -34,7 +34,7 @@ dist_a = diikstra()
 for i in range(1, n+1):
     for j in range(len(graph[i])):
         v, w = graph[i][j]
-        if dist_a[i] + w == dist_a[v] or dist_a[v] == dist_a[i] + w:
+        if dist_a[i] + w == dist_a[v] or dist_a[v] + w == dist_a[i]:
             graph[i][j] = [v, 10e8]
 
 
