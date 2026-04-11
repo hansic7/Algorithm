@@ -11,6 +11,7 @@ for _ in range(m):
 
 def diikstra():
     dist = [10e8] * (n+1)
+    dist[1] = 0
     pq = []
     heapq.heappush(pq, (0, 1))
 
@@ -25,13 +26,16 @@ def diikstra():
     return dist
 
 dist = diikstra()
+# print(dist)
 result = 0
 
 for i in range(1, n+1):
     for j in range(len(graph[i])):
         v, w = graph[i][j]
         if dist[v] == dist[i] + w:
+            # print("여기 들어옴")
             graph[i][j] = [v, 10e9]
+            # print(graph)
             tmp_dist = diikstra()
             graph[i][j] = [v, w]
             if dist[n] != tmp_dist[n]:
