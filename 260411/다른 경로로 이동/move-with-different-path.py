@@ -17,8 +17,8 @@ def diikstra():
     while pq:
         prev_dist, prev_index = heapq.heappop(pq)
 
-        if dist[prev_index] < prev_dist:
-            continue
+        # if dist[prev_index] < prev_dist:
+        #     continue
 
         for next_index, w in graph[prev_index]:
             next_dist = prev_dist + w
@@ -34,7 +34,7 @@ dist_a = diikstra()
 for i in range(1, n+1):
     for j in range(len(graph[i])):
         v, w = graph[i][j]
-        if dist_a[i] + w == dist_a[v] or dist_a[v] + w == dist_a[i]:
+        if dist_a[i] + w == dist_a[v]:
             graph[i][j] = [v, 10e8]
 
 
