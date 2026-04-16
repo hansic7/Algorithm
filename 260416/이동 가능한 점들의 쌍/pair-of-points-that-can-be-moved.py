@@ -16,6 +16,8 @@ for i in range(1, n+1):
 
 for u,v,w in edges:
     dist[u][v] = w
+    if red_dot[u][u] or red_dot[v][v]:
+        red_dot[u][v] = 1
 
 
 for k in range(n+1):
