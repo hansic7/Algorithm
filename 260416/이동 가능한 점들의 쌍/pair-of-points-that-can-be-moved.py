@@ -27,7 +27,7 @@ for k in range(n+1):
 
 possible_sum, dist_sum = 0,0
 for u,v in queries:
-    if red_dot[u][v]:
+    if red_dot[u][v] and dist[u][v] != 10e8:
         possible_sum += 1
         dist_sum += dist[u][v]
 
