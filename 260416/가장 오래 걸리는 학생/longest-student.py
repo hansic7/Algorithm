@@ -2,7 +2,7 @@ import heapq
 
 n, m = map(int, input().split())
 
-graph = [[] for _ in range(n)]
+graph = [[] for _ in range(n+1)]
 for _ in range(m):
     u,v,w = map(int, input().split())
     graph[u].append((v,w))
