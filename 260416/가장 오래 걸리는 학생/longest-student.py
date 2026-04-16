@@ -26,13 +26,14 @@ def diikstra(start):
                 dist[next_index] = next_dist
                 heapq.heappush(pq,(next_dist, next_index))
 
-    return dist[n]
+    return dist
 
 
 answer = 0
-
+dist = diikstra(n)
 for i in range(1, n):
-    answer = max(answer, diikstra(i))
+    answer = max(answer, dist[i])
+
 
 print(answer)
 
