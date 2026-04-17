@@ -43,12 +43,14 @@ for k in range(1,n+1):
         taxi_s = k
         break
 
+# print("k=", taxi_s)
+# print("taxi=", taxi)
 
 if taxi == INT_MAX:
     print(dist_a[k][e] + dist_b[k][e])
     exit()
 else:
-    print(dist_a[v1][taxi_s] + dist_b[v2][taxi_s] + taxi)
+    print(min(dist_a[v1][taxi_s] + dist_b[v2][taxi_s] + taxi, dist_a[v1][e] + dist_b[v2][e]))
 
 
 # Please write your code here.
