@@ -28,8 +28,7 @@ taxi = -1
 taxi_k = 0
 ans = dist[v1][e] + dist[v2][e]
 for k in range(1,n+1):
-    if dist[v1][k] + dist[k][e] == dist[v1][e] \
-    and dist[v2][k] + dist[k][e] == dist[v2][e]:
+    if dist[v1][k] != INT_MAX and dist[v2][k] != INT_MAX and dist[k][e] != INT_MAX:
         ans = min(ans, dist[k][e] + dist[v1][k] + dist[v2][k])
 
 # print("k=", taxi_k)
