@@ -1,27 +1,25 @@
 n, k = map(int, input().split())
 edges = [tuple(map(int, input().split())) for _ in range(k)]
 
-seat = [[] for _ in range(n+1)]
+num = [set() for _ in range(n+1)]
+seat = [i for i in range(n+1)]
+
 for i in range(1, n+1):
-    seat[i].append(i)
+    num[i].add(i)
 
 for _ in range(3):
     for u, v in edges:
-        ui = seat[u][-1]
-        vi = seat[v][-1]
+        num[seat[u]].add(v)
+        num[seat[v]].add(u)
 
-        seat[u].append(vi)
-        seat[v].append(ui)
+        tmp = seat[u]
+        seat[u] = seat[v]
+        seat[v] = tmp
+
+
 
 for i in range(1, n+1):
-    seat[i] = set(seat[i])
-
-for i in range(1, n+1):
-    ans = 0
-    for j in range(1, n+1):
-        if i in seat[j]:
-            ans += 1
-    print(ans)
+    print(len(num[i]))
 
 
 # Please write your code here.
