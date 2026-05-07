@@ -1,19 +1,28 @@
-n, q = map(int, input().split())
+# 입력:
+n, q = tuple(map(int, input().split()))
 points = list(map(int, input().split()))
-ranges = [tuple(map(int, input().split())) for _ in range(q)]
+query = [
+    tuple(map(int, input().split()))
+    for _ in range(q)
+]
 
-prefix_sum = [0] * (1000001)
+# 변수 선언
+MAX_A = 1000000
+prefix_sum = [0] * (MAX_A + 1)
 
-for p in points:
-    prefix_sum[p] = 1
+# 누적합 배열을 만들어줍니다.
+for point in points:
+    prefix_sum[point] += 1
 
-for i in range(1, 1000001):
-    prefix_sum[i] = prefix_sum[i] + prefix_sum[i-1]
+for i in range(1, MAX_A + 1):
+    prefix_sum[i] += prefix_sum[i - 1]
 
-for s,e in ranges:
+# [s, e] 구간 내의 원소의 합을 반환합니다.
+def GetSum(s, e):
     if s == 0:
-        print(prefix_sum[e])
-    else:
-        print(prefix_sum[e] - prefix_sum[s-1])
+        return prefix_sum[e]
+    return prefix_sum[e] - prefix_sum[s - 1]
 
-# Please write your code here.
+# q번에 걸쳐 범위에 있는 점의 개수를 계산합니다.
+for (l, r) in query:
+    print(GetSum(l, r))
